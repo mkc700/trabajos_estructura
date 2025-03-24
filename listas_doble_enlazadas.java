@@ -18,7 +18,7 @@ public class listas_doble_enlazadas {
         list.addFirst(14);        
 //_____________________________________________________________________________________________________________   
         // insertar al final de la lista
-        list.addLast(21);
+        list.add(21);
 //_____________________________________________________________________________________________________________
         // insertar antes de un numero en una lista      
       
