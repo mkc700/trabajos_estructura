@@ -11,6 +11,75 @@ class Nodo {
     }
 }
 
+// Implementación propia de una cola para el recorrido en anchura
+class Cola {
+    private Nodo[] elementos;
+    private int capacidad;
+    private int frente;
+    private int final;
+    private int tamaño;
+    
+    public Cola(int capacidad) {
+        this.capacidad = capacidad;
+        elementos = new Nodo[capacidad];
+        frente = 0;
+        final = -1;
+        tamaño = 0;
+    }
+    
+    // Verificar si la cola está vacía
+    public boolean estaVacia() {
+        return tamaño == 0;
+    }
+    
+    // Verificar si la cola está llena
+    public boolean estaLlena() {
+        return tamaño == capacidad;
+    }
+    
+    // Agregar un elemento al final de la cola
+    public void encolar(Nodo nodo) {
+        if (estaLlena()) {
+            // Si la cola está llena, aumentamos su capacidad
+            redimensionar();
+        }
+        
+        final = (final + 1) % capacidad;
+        elementos[final] = nodo;
+        tamaño++;
+    }
+    
+    // Sacar el elemento del frente de la cola
+    public Nodo desencolar() {
+        if (estaVacia()) {
+            return null;
+        }
+        
+        Nodo nodo = elementos[frente];
+        elementos[frente] = null;
+        frente = (frente + 1) % capacidad;
+        tamaño--;
+        
+        return nodo;
+    }
+    
+    // Redimensionar la cola cuando está llena
+    private void redimensionar() {
+        int nuevaCapacidad = capacidad * 2;
+        Nodo[] nuevosElementos = new Nodo[nuevaCapacidad];
+        
+        // Copiamos los elementos a la nueva cola
+        for (int i = 0; i < tamaño; i++) {
+            nuevosElementos[i] = elementos[(frente + i) % capacidad];
+        }
+        
+        elementos = nuevosElementos;
+        capacidad = nuevaCapacidad;
+        frente = 0;
+        final = tamaño - 1;
+    }
+}
+
 // Clase principal del Árbol Binario de Búsqueda
 class ArbolBinarioBusqueda {
     private Nodo raiz;
@@ -44,30 +113,30 @@ class ArbolBinarioBusqueda {
         return nodo;
     }
     
-    // Método para realizar recorrido en anchura (por niveles)
+    // Método para realizar recorrido en anchura (por niveles) sin usar librerías
     public void recorridoAnchura() {
         if (raiz == null) {
             System.out.println("El árbol está vacío");
             return;
         }
         
-        // Utilizamos una cola para el recorrido en anchura
-        java.util.Queue<Nodo> cola = new java.util.LinkedList<>();
-        cola.add(raiz);
+        // Utilizamos nuestra propia implementación de cola
+        Cola cola = new Cola(10); // Capacidad inicial de 10
+        cola.encolar(raiz);
         
         System.out.print("Recorrido en anchura: ");
         
-        while (!cola.isEmpty()) {
-            Nodo nodoActual = cola.poll();
+        while (!cola.estaVacia()) {
+            Nodo nodoActual = cola.desencolar();
             System.out.print(nodoActual.valor + " ");
             
             // Agregamos los hijos a la cola
             if (nodoActual.izquierdo != null) {
-                cola.add(nodoActual.izquierdo);
+                cola.encolar(nodoActual.izquierdo);
             }
             
             if (nodoActual.derecho != null) {
-                cola.add(nodoActual.derecho);
+                cola.encolar(nodoActual.derecho);
             }
         }
         System.out.println();
