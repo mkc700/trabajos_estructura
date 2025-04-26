@@ -16,14 +16,14 @@ class Cola {
     private Nodo[] elementos;
     private int capacidad;
     private int frente;
-    private int final;
+    private int fin;
     private int tamaño;
     
     public Cola(int capacidad) {
         this.capacidad = capacidad;
         elementos = new Nodo[capacidad];
         frente = 0;
-        final = -1;
+        fin = -1;
         tamaño = 0;
     }
     
@@ -44,8 +44,8 @@ class Cola {
             redimensionar();
         }
         
-        final = (final + 1) % capacidad;
-        elementos[final] = nodo;
+        fin = (fin + 1) % capacidad;
+        elementos[fin] = nodo;
         tamaño++;
     }
     
@@ -76,7 +76,7 @@ class Cola {
         elementos = nuevosElementos;
         capacidad = nuevaCapacidad;
         frente = 0;
-        final = tamaño - 1;
+        fin = tamaño - 1;
     }
 }
 
