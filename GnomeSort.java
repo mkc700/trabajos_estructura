@@ -4,9 +4,13 @@ public class GnomeSort {
      * Método que implementa el ordenamiento Gnome
      */
     public static void gnomeSort(int[] arr) {
-        int i = 0;
+        int i = 0; 
+        
         // arr es el nombre de la variable que representa el arreglo
         while (i < arr.length) {
+            // Mostramos el estado actual
+          System.out.print("\nEstado-posicion("+i+"): ");
+          imprimirArreglo(arr);
             // Si estamos al inicio o el elemento actual es mayor o igual al anterior
             if (i == 0 || arr[i] >= arr[i - 1]) {
                 i++; // Avanzamos
@@ -17,9 +21,7 @@ public class GnomeSort {
                 arr[i - 1] = temp;
                 i--;
             }
-            // Mostramos el estado actual
-         System.out.print("Estado-posicion("+i+"): ");
-         imprimirArreglo(arr);
+          
            
         }
     }
@@ -39,14 +41,11 @@ public class GnomeSort {
     }
     
     public static void main(String[] args) {
-        int[] arr = {23,58,16,14,20,19};
-        
-        System.out.print("Original: ");
-        imprimirArreglo(arr);
+        int[] arr = {58,23,16,14};
         
         gnomeSort(arr);
         
-        System.out.print("Ordenado: ");
+        System.out.print("\n Ordenado: ");
         imprimirArreglo(arr);
     }
 }
