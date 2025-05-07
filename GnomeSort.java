@@ -4,8 +4,7 @@ public class GnomeSort {
      * Método que implementa el ordenamiento Gnome
      */
     public static void gnomeSort(int[] arr) {
-        int i = 0; 
-        
+        int i = 1; 
         // arr es el nombre de la variable que representa el arreglo
         while (i < arr.length) {
             // Mostramos el estado actual
@@ -20,9 +19,7 @@ public class GnomeSort {
                 arr[i] = arr[i - 1];
                 arr[i - 1] = temp;
                 i--;
-            }
-          
-           
+            }      
         }
     }
     
