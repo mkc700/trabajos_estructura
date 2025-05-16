@@ -29,16 +29,14 @@ public class GnomeSort {
     public static void imprimirArreglo(int[] arr) {
         System.out.print("[");
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
-            if (i < arr.length - 1) {
-                System.out.print(", ");
-            }
+            System.out.print(arr[i]+",");
         }
         System.out.println("]");
     }
     
+    
     public static void main(String[] args) {
-        int[] arr = {58,23,16,14};
+        int[] arr = {58,23,16,14,46};
         
         gnomeSort(arr);
         
