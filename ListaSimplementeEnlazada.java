@@ -26,7 +26,7 @@ public class ListaSimplementeEnlazada {
     
     /**
      * Verifica si la lista está vacía
-     * @return true si la lista está vacía, false en caso contrario
+     
      */
     public boolean estaVacia() {
         // La lista está vacía si cabeza apunta a null
@@ -35,7 +35,7 @@ public class ListaSimplementeEnlazada {
     
     /**
      * Inserta un nuevo nodo al inicio de la lista
-     * @param dato Valor a insertar
+     
      */
     public void insertarAlInicio(int dato) {
         // Crear nuevo nodo
@@ -55,7 +55,7 @@ public class ListaSimplementeEnlazada {
     
     /**
      * Inserta un nuevo nodo al final de la lista
-     * @param dato Valor a insertar
+     
      */
     public void insertarAlFinal(int dato) {
         // Crear nuevo nodo
@@ -81,8 +81,7 @@ public class ListaSimplementeEnlazada {
     
     /**
      * Inserta un nuevo nodo en una posición específica
-     * @param dato Valor a insertar
-     * @param posicion Posición donde insertar (0 es el inicio)
+    
      */
     public void insertarEnPosicion(int dato, int posicion) {
         // Si la posición es 0, insertamos al inicio
@@ -173,7 +172,7 @@ public class ListaSimplementeEnlazada {
     
     /**
      * Elimina un nodo en una posición específica
-     * @param posicion Posición del nodo a eliminar (0 es el inicio)
+     
      */
     public void eliminarEnPosicion(int posicion) {
         if (estaVacia()) {
@@ -217,8 +216,7 @@ public class ListaSimplementeEnlazada {
     
     /**
      * Busca un elemento en la lista
-     * @param dato Valor a buscar
-     * @return true si el elemento está en la lista, false en caso contrario
+     
      */
     public boolean buscar(int dato) {
         // Si la lista está vacía, el elemento no está

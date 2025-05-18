@@ -30,7 +30,7 @@ public class ListaDoblementeEnlazada {
     
     /**
      * Verifica si la lista está vacía
-     * @return true si la lista está vacía, false en caso contrario
+
      */
     public boolean estaVacia() {
         // La lista está vacía si cabeza apunta a null
@@ -39,7 +39,7 @@ public class ListaDoblementeEnlazada {
     
     /**
      * Inserta un nuevo nodo al inicio de la lista
-     * @param dato Valor a insertar
+    
      */
     public void insertarAlInicio(int dato) {
         // Crear nuevo nodo
@@ -62,7 +62,7 @@ public class ListaDoblementeEnlazada {
     
     /**
      * Inserta un nuevo nodo al final de la lista
-     * @param dato Valor a insertar
+  
      */
     public void insertarAlFinal(int dato) {
         // Crear nuevo nodo
@@ -85,8 +85,7 @@ public class ListaDoblementeEnlazada {
     
     /**
      * Busca un nodo con el valor especificado
-     * @param dato Valor a buscar
-     * @return El nodo que contiene el valor, o null si no se encuentra
+    
      */
     public Nodo buscarNodo(int dato) {
         // Si la lista está vacía, retornamos null
@@ -113,9 +112,8 @@ public class ListaDoblementeEnlazada {
     
     /**
      * Inserta un nuevo nodo antes del nodo que contiene el valor especificado
-     * @param valorReferencia Valor de referencia
-     * @param nuevoDato Valor a insertar
-     * @return true si se insertó correctamente, false si no se encontró el valor de referencia
+     
+    
      */
     public boolean insertarAntesDe(int valorReferencia, int nuevoDato) {
         // Buscamos el nodo de referencia
@@ -153,9 +151,7 @@ public class ListaDoblementeEnlazada {
     
     /**
      * Inserta un nuevo nodo después del nodo que contiene el valor especificado
-     * @param valorReferencia Valor de referencia
-     * @param nuevoDato Valor a insertar
-     * @return true si se insertó correctamente, false si no se encontró el valor de referencia
+  
      */
     public boolean insertarDespuesDe(int valorReferencia, int nuevoDato) {
         // Buscamos el nodo de referencia
@@ -193,8 +189,7 @@ public class ListaDoblementeEnlazada {
     
     /**
      * Elimina un nodo con el valor especificado
-     * @param dato Valor a eliminar
-     * @return true si se eliminó correctamente, false si no se encontró el valor
+  
      */
     public boolean borrar(int dato) {
         // Si la lista está vacía, retornamos false
@@ -259,8 +254,7 @@ public class ListaDoblementeEnlazada {
     
     /**
      * Busca un elemento en la lista
-     * @param dato Valor a buscar
-     * @return true si el elemento está en la lista, false en caso contrario
+   
      */
     public boolean buscar(int dato) {
         // Utilizamos el método buscarNodo y verificamos si retorna null
