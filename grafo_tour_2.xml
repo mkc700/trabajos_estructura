@@ -1,0 +1,100 @@
+<?xml version="1.0" standalone="yes" ?>
+<grafo>
+<tipoGrafo> "0" </tipoGrafo>
+<nodos><nodo>
+<nombre> "Huichapan" </nombre>
+<posicion> (160,88) </posicion>
+</nodo>
+<nodo>
+<nombre> "Real del monte" </nombre>
+<posicion> (302,146) </posicion>
+</nodo>
+<nodo>
+<nombre> "San miguel Regla" </nombre>
+<posicion> (482,110) </posicion>
+</nodo>
+<nodo>
+<nombre> "Actopan" </nombre>
+<posicion> (265,272) </posicion>
+</nodo>
+<nodo>
+<nombre> "Huasca de ocampo" </nombre>
+<posicion> (433,298) </posicion>
+</nodo>
+<nodo>
+<nombre> "Zimapan" </nombre>
+<posicion> (109,398) </posicion>
+</nodo>
+<nodo>
+<nombre> "El cardonal" </nombre>
+<posicion> (273,390) </posicion>
+</nodo>
+</nodos>
+<aristas><arista>
+<nodo1> "0" </nodo1>
+<nodo2> "1" </nodo2>
+<peso> "110.0" </peso>
+<tipo> "0" </tipo>
+</arista>
+<arista>
+<nodo1> "0" </nodo1>
+<nodo2> "3" </nodo2>
+<peso> "78.0" </peso>
+<tipo> "0" </tipo>
+</arista>
+<arista>
+<nodo1> "0" </nodo1>
+<nodo2> "5" </nodo2>
+<peso> "92.0" </peso>
+<tipo> "0" </tipo>
+</arista>
+<arista>
+<nodo1> "1" </nodo1>
+<nodo2> "2" </nodo2>
+<peso> "25.0" </peso>
+<tipo> "0" </tipo>
+</arista>
+<arista>
+<nodo1> "1" </nodo1>
+<nodo2> "3" </nodo2>
+<peso> "52.0" </peso>
+<tipo> "0" </tipo>
+</arista>
+<arista>
+<nodo1> "1" </nodo1>
+<nodo2> "4" </nodo2>
+<peso> "35.0" </peso>
+<tipo> "0" </tipo>
+</arista>
+<arista>
+<nodo1> "2" </nodo1>
+<nodo2> "4" </nodo2>
+<peso> "12.0" </peso>
+<tipo> "0" </tipo>
+</arista>
+<arista>
+<nodo1> "3" </nodo1>
+<nodo2> "4" </nodo2>
+<peso> "62.0" </peso>
+<tipo> "0" </tipo>
+</arista>
+<arista>
+<nodo1> "3" </nodo1>
+<nodo2> "5" </nodo2>
+<peso> "103.0" </peso>
+<tipo> "0" </tipo>
+</arista>
+<arista>
+<nodo1> "3" </nodo1>
+<nodo2> "6" </nodo2>
+<peso> "45.0" </peso>
+<tipo> "0" </tipo>
+</arista>
+<arista>
+<nodo1> "5" </nodo1>
+<nodo2> "6" </nodo2>
+<peso> "65.0" </peso>
+<tipo> "0" </tipo>
+</arista>
+</aristas> 
+ </grafo>
