@@ -33,143 +33,28 @@ public class ListaSimplementeEnlazada {
         return cabeza == null;
     }
     
-    /**
-     * Inserta un nuevo nodo al inicio de la lista
-     
-     */
-    public void insertarAlInicio(int dato) {
-        // Crear nuevo nodo
+    
+   public void insertar(int dato) {
         Nodo nuevoNodo = new Nodo(dato);
         
-        if (estaVacia()) {
-            // Si la lista está vacía, el nuevo nodo será la cabeza
-            cabeza = nuevoNodo;
-        } else {
-            // Si la lista no está vacía:
-            // 1. El apuntador 'siguiente' del nuevo nodo apuntará a donde apuntaba la cabeza
+        // Caso 1: Lista vacía o el nuevo dato es menor que el dato de la cabeza
+        if (cabeza == null || dato < cabeza.dato) {
             nuevoNodo.siguiente = cabeza;
-            // 2. La cabeza ahora apuntará al nuevo nodo
             cabeza = nuevoNodo;
-        }
-    }
-    
-    /**
-     * Inserta un nuevo nodo al final de la lista
-     
-     */
-    public void insertarAlFinal(int dato) {
-        // Crear nuevo nodo
-        Nodo nuevoNodo = new Nodo(dato);
-        
-        if (estaVacia()) {
-            // Si la lista está vacía, el nuevo nodo será la cabeza
-            cabeza = nuevoNodo;
-        } else {
-            // Si la lista no está vacía, recorremos hasta el último nodo
-            Nodo actual = cabeza;
-            
-            // Mientras el nodo actual tenga un siguiente, avanzamos
-            while (actual.siguiente != null) {
-                actual = actual.siguiente;
-            }
-            
-            // Al salir del bucle, 'actual' es el último nodo
-            // Hacemos que el último nodo apunte al nuevo nodo
-            actual.siguiente = nuevoNodo;
-        }
-    }
-    
-    /**
-     * Inserta un nuevo nodo en una posición específica
-    
-     */
-    public void insertarEnPosicion(int dato, int posicion) {
-        // Si la posición es 0, insertamos al inicio
-        if (posicion == 0) {
-            insertarAlInicio(dato);
             return;
         }
         
-        // Crear nuevo nodo
-        Nodo nuevoNodo = new Nodo(dato);
-        
-        // Nodo auxiliar para recorrer la lista
+        // Caso 2: Buscar la posición correcta para insertar
         Nodo actual = cabeza;
-        int contador = 0;
-        
-        // Recorremos hasta la posición anterior a donde queremos insertar
-        while (actual != null && contador < posicion - 1) {
+        while (actual.siguiente != null && actual.siguiente.dato < dato) {
             actual = actual.siguiente;
-            contador++;
         }
         
-        // Verificamos si la posición es válida
-        if (actual == null) {
-            System.out.println("Posición fuera de rango");
-            return;
-        }
-        
-        // Realizamos la inserción:
-        // 1. El siguiente del nuevo nodo será el siguiente del nodo actual
+        // Insertar el nuevo nodo después de 'actual'
         nuevoNodo.siguiente = actual.siguiente;
-        // 2. El siguiente del nodo actual será el nuevo nodo
         actual.siguiente = nuevoNodo;
     }
-    
-    /**
-     * Elimina el primer nodo de la lista
-     */
-    public void eliminarPrimero() {
-        if (estaVacia()) {
-            System.out.println("La lista está vacía, no se puede eliminar");
-            return;
-        }
-        
-        // Guardamos referencia al nodo a eliminar (para mostrar qué se eliminó)
-        Nodo eliminado = cabeza;
-        
-        // La cabeza ahora apuntará al segundo nodo
-        cabeza = cabeza.siguiente;
-        
-        // Desconectamos el nodo eliminado de la lista
-        eliminado.siguiente = null;
-        
-        System.out.println("Nodo eliminado: " + eliminado.dato);
-    }
-    
-    /**
-     * Elimina el último nodo de la lista
-     */
-    public void eliminarUltimo() {
-        if (estaVacia()) {
-            System.out.println("La lista está vacía, no se puede eliminar");
-            return;
-        }
-        
-        // Si solo hay un nodo, eliminamos la cabeza
-        if (cabeza.siguiente == null) {
-            System.out.println("Nodo eliminado: " + cabeza.dato);
-            cabeza = null;
-            return;
-        }
-        
-        // Si hay más de un nodo, necesitamos recorrer hasta el penúltimo
-        Nodo actual = cabeza;
-        Nodo anterior = null;
-        
-        // Recorremos hasta el último nodo
-        while (actual.siguiente != null) {
-            anterior = actual;
-            actual = actual.siguiente;
-        }
-        
-        // Al salir del bucle, 'actual' es el último nodo y 'anterior' es el penúltimo
-        // Hacemos que el penúltimo nodo ya no apunte al último
-        anterior.siguiente = null;
-        
-        System.out.println("Nodo eliminado: " + actual.dato);
-    }
-    
+    //_____________________________________________________________________________________
     /**
      * Elimina un nodo en una posición específica
      
@@ -182,8 +67,17 @@ public class ListaSimplementeEnlazada {
         
         // Si queremos eliminar el primer nodo
         if (posicion == 0) {
-            eliminarPrimero();
-            return;
+
+            // Guardamos referencia al nodo a eliminar (para mostrar qué se eliminó)
+            Nodo eliminado = cabeza;
+        
+            // La cabeza ahora apuntará al segundo nodo
+            cabeza = cabeza.siguiente;
+        
+            // Desconectamos el nodo eliminado de la lista
+            eliminado.siguiente = null;
+        
+            System.out.println("Nodo eliminado: " + eliminado.dato);
         }
         
         // Nodos auxiliares para recorrer la lista
@@ -282,10 +176,12 @@ public class ListaSimplementeEnlazada {
         System.out.println("¿La lista está vacía? " + lista.estaVacia());
         
         // Insertamos elementos
-        lista.insertarAlInicio(10);
-        lista.insertarAlFinal(20);
-        lista.insertarAlFinal(30);
-        lista.insertarEnPosicion(15, 1);
+        
+        lista.insertar(15);
+        lista.insertar(20);
+        lista.insertar(35);
+        lista.insertar(10);
+        lista.insertar(8);
         
         // Recorremos la lista
         lista.recorrer();
@@ -295,13 +191,12 @@ public class ListaSimplementeEnlazada {
         System.out.println("¿Está el 25 en la lista? " + lista.buscar(25));
         
         // Eliminamos elementos
-        lista.eliminarPrimero();
+        
         lista.recorrer();
         
         lista.eliminarEnPosicion(1);
         lista.recorrer();
         
-        lista.eliminarUltimo();
         lista.recorrer();
         
         // Verificamos si la lista está vacía después de eliminar
