@@ -36,16 +36,17 @@ public class ListaSimplementeEnlazada {
     
    public void insertar(int dato) {
         Nodo nuevoNodo = new Nodo(dato);
-        
+        Nodo actual = cabeza;
         // Caso 1: Lista vacía 
-        if (cabeza == null ) {
-            cabeza = nuevoNodo;
-            return;
-        }
+        if (cabeza == null || dato < cabeza.dato) {
+        nuevoNodo.siguiente = cabeza;
+        cabeza = nuevoNodo;
+        return;
+    }
         
         // Caso 2: Buscar la posición correcta para insertar
-        Nodo actual = cabeza;
-        while (actual.siguiente != null && actual.siguiente.dato < dato) {
+        
+        while (actual.siguiente != null && actual.siguiente.dato < dato ) {
             actual = actual.siguiente;
         }
         
@@ -58,7 +59,7 @@ public class ListaSimplementeEnlazada {
      * Elimina un nodo en una posición específica
      
      */
-    public void eliminarEnPosicion(int posicion) {
+    public void eliminar(int dato) {
         if (estaVacia()) {
             System.out.println("La lista está vacía, no se puede eliminar");
             return;
@@ -67,20 +68,20 @@ public class ListaSimplementeEnlazada {
         // Nodos auxiliares para recorrer la lista
         Nodo actual = cabeza;
         Nodo anterior = null;
-        int contador = 0;
+        
         
         // Recorremos hasta la posición que queremos eliminar
         /**/
-        while (actual != null && contador<posicion) {
+        while (actual != null && actual.dato < dato) {
             anterior = actual;
             actual = actual.siguiente;
-            contador++;
+            
         }
         
         // Verificamos si la posición es válida
         
         if (actual == null) {
-            System.out.println("Posición fuera de rango");
+            System.out.println("dato no encontrado");
             return;
         }
         
@@ -166,17 +167,21 @@ public class ListaSimplementeEnlazada {
         
         // Insertamos elementos
        
-        lista.insertar(15); 
-       lista.insertar(5);
-       lista.insertar(25);
+        lista.insertar(15);
+        lista.insertar(12);
+        lista.insertar(11);
+       
         lista.insertar(10);
-       lista.insertar(20);
-       lista.insertar(30);
+        lista.insertar(8);
+
         
-        
+        System.out.println("lista original");
+        lista.recorrer();
+        System.out.println("lista despues de la eliminacion del 11");
+        lista.eliminar(11);
         lista.recorrer();
        
-        lista.buscar(120);
+       
         //lista.eliminarEnPosicion(2);
 
         //lista.recorrer();
