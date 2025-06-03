@@ -165,17 +165,13 @@ public class ListaSimplementeEnlazada {
         System.out.println("¿La lista está vacía? " + lista.estaVacia());
         
         // Insertamos elementos
-        
-        lista.insertar(15);
-        lista.insertar(13);
-        lista.insertar(58);
-        lista.insertar(46);
-        lista.insertar(23);
-        lista.insertar(48);
-        lista.insertar(26);
-        lista.insertar(87);
-        lista.insertar(100);
-        
+       
+        lista.insertar(15); 
+       lista.insertar(5);
+       lista.insertar(25);
+        lista.insertar(10);
+       lista.insertar(20);
+       lista.insertar(30);
         
         
         lista.recorrer();
